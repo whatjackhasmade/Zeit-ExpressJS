@@ -1,8 +1,10 @@
 const express = require("express");
+const jokesRoute = require("./routes/jokes");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
+app.use(express.urlencoded({ extended: false }));
 
-app.listen(3000);
+// add all of the routes in the API here
+app.get("/jokes", jokesRoute);
+
+app.listen(8000);
